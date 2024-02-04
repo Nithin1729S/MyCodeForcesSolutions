@@ -22,9 +22,35 @@ using namespace std;
 #define take(a,n) vi a(n); f0(i,n) cin >> a[i];
 #define give(a,n) f0(i,n){cout << a[i] << ' ';}cout << nl;
 
+
+int remove0(int n)
+{
+    int m=0;
+    int pwr=1;
+    while(n!=0)
+    {
+        int d=n%10;
+        n/=10;
+        if(d!=0)
+        {
+            m+=d*pwr;
+            pwr*=10;
+        }
+    }
+    return m;
+}
 void solve()
 {
-    
+    int a;
+    int b;
+    cin>>a>>b;
+    int total=a+b;
+    int A=remove0(a);
+    int B=remove0(b);
+    int Total=remove0(total);
+    if(A+B==Total) cout<<"YES";
+    else cout<<"NO";
+
 }
 int32_t main()
 {
@@ -33,7 +59,7 @@ int32_t main()
         freopen("out.txt","w",stdout);
     #endif
     fast_io;
-    test
+    //test
         solve();
     return 0;
 }
